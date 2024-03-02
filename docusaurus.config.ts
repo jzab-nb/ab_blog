@@ -4,20 +4,20 @@ import { themes } from 'prism-react-renderer'
 import { GiscusConfig } from './src/components/Comment'
 import social from './data/social'
 
-const beian = '闽ICP备2020017848号-2'
-const beian1 = '闽公网安备35021102000847号'
+const beian = 'xxx'
+const beian1 = 'xxx'
 
 const config: Config = {
-  title: '愧怍的小站',
+  title: '冀中阿板的小站',
   url: 'https://kuizuo.cn',
   baseUrl: '/',
   favicon: 'img/favicon.ico',
   organizationName: 'kuizuo',
   projectName: 'blog',
   customFields: {
-    bio: '道阻且长，行则将至',
+    bio: '2024，向前冲刺',
     description:
-      '是一个由愧怍创建的个人博客，主要分享编程开发知识和项目，该网站基于 React 驱动的静态网站生成器 Docusaurus 构建。',
+      '是一个由冀中阿板创建的个人博客，主要分享编程开发知识和项目，该网站基于开源项目二次开发',
   },
   themeConfig: {
     // announcementBar: {
@@ -27,15 +27,15 @@ const config: Config = {
     metadata: [
       {
         name: 'keywords',
-        content: '愧怍, kuizuo',
+        content: '冀中阿板, JZAB',
       },
       {
         name: 'keywords',
-        content: 'blog, javascript, typescript, node, react, vue, web',
+        content: 'blog, javascript, java, vue, python, web',
       },
       {
         name: 'keywords',
-        content: '编程爱好者, Web开发者, 写过爬虫, 学过逆向, 现在主攻ts全栈',
+        content: '编程爱好者, Web开发者, 主攻java全栈，',
       },
     ],
     docs: {
@@ -45,7 +45,7 @@ const config: Config = {
     },
     navbar: {
       logo: {
-        alt: '愧怍',
+        alt: '冀中阿板',
         src: 'img/logo.webp',
         srcDark: 'img/logo.webp',
       },
@@ -65,10 +65,8 @@ const config: Config = {
           label: '更多',
           position: 'right',
           items: [
-            { label: '归档', to: 'blog/archive' },
             { label: '笔记', to: 'docs/skill' },
             { label: '资源', to: 'resources' },
-            { label: '友链', to: 'friends' },
             { label: '工具推荐', to: 'docs/tools' },
           ],
         },
@@ -96,15 +94,12 @@ const config: Config = {
           items: [
             { label: '关于我', to: '/about' },
             { label: 'GitHub', href: social.github.href },
-            { label: 'Twitter', href: social.twitter.href },
-            { label: '掘金', href: social.juejin.href },
-            { label: 'Discord', href: social.discord.href },
+            { label: 'CSDN', href: social.csdn.href },
           ],
         },
         {
           title: '更多',
           items: [
-            { label: '友链', position: 'right', to: 'friends' },
             { label: '导航', position: 'right', to: 'resources' },
             {
               html: `
@@ -121,7 +116,7 @@ const config: Config = {
         <p style="display: inline-flex; align-items: center;"><img style="height:20px;margin-right: 0.5rem;" src="/img/police.png" alt="police" height="20"/><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=${beian1.match(
           /\d+/,
         )?.[0]}" >${beian1}</a></p>
-        <p>Copyright © 2020 - PRESENT 愧怍 Built with Docusaurus.</p>
+        <p>Copyright © 2020 - PRESENT 冀中阿板 Built with Docusaurus.</p>
         `,
     },
     algolia: {
@@ -233,8 +228,8 @@ const config: Config = {
           defaultReadingTime({ content, options: { wordsPerMinute: 300 } }),
         feedOptions: {
           type: 'all',
-          title: '愧怍',
-          copyright: `Copyright © ${new Date().getFullYear()} 愧怍 Built with Docusaurus.<p><a href="http://beian.miit.gov.cn/" class="footer_lin">${beian}</a></p>`,
+          title: '冀中阿板',
+          copyright: `Copyright © ${new Date().getFullYear()} 冀中阿板 Built with Docusaurus.<p><a href="http://beian.miit.gov.cn/" class="footer_lin">${beian}</a></p>`,
         },
       },
     ],
@@ -244,7 +239,7 @@ const config: Config = {
       tagName: 'meta',
       attributes: {
         name: 'description',
-        content: '愧怍的个人博客',
+        content: '冀中阿板的个人博客',
       },
     },
   ],

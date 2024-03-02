@@ -2,11 +2,11 @@ import { IconProps } from '@iconify/react'
 
 const SKILLS: IconProps[] = [
   {
-    icon: 'logos:vue',
+    icon: 'logos:rust',
     style: { left: '1%', top: '1%' },
   },
   {
-    icon: 'logos:nuxt-icon',
+    icon: 'logos:python',
     style: { left: '4%', top: '5%' },
   },
 
@@ -15,7 +15,7 @@ const SKILLS: IconProps[] = [
     style: { right: '2%', top: '11%' },
   },
   {
-    icon: 'logos:nextjs-icon',
+    icon: 'logos:java',
     style: { right: '8%', top: '14%' },
   },
 
@@ -24,20 +24,20 @@ const SKILLS: IconProps[] = [
     style: { top: '5%', left: '54%' },
   },
   {
-    icon: 'logos:typescript-icon',
+    icon: 'logos:spring',
     style: { top: '9%', left: '60%' },
   },
 
   {
-    icon: 'logos:nodejs-icon-alt',
+    icon: 'logos:vue',
     style: { top: '14%', left: '30%' },
   },
   {
-    icon: 'logos:nestjs',
+    icon: 'logos:mysql',
     style: { top: '19%', left: '38%' },
   },
   {
-    icon: 'logos:prisma',
+    icon: 'logos:nginx',
     style: { top: '24%', left: '50%' },
   },
   {
@@ -46,7 +46,7 @@ const SKILLS: IconProps[] = [
   },
 
   {
-    icon: 'logos:tailwindcss-icon',
+    icon: 'logos:apache',
     style: { top: '30%', left: '90%' },
   },
 
