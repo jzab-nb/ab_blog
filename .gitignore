@@ -10,6 +10,8 @@ cloudbaserc.json
 # Generated files
 .docusaurus
 .cache-loader
+.idea
+.vscode
 
 # Misc
 .DS_Store
