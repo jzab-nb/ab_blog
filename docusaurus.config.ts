@@ -66,6 +66,7 @@ const config: Config = {
           position: 'right',
           items: [
             { label: '笔记', to: 'docs/skill' },
+            { label: '归档', to: 'blog/archive' },
             { label: '资源', to: 'resources' },
             { label: '工具推荐', to: 'docs/tools' },
           ],

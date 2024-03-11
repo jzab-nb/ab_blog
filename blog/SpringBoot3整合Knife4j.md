@@ -1,3 +1,12 @@
+---
+id: springboot3+knife4j
+slug: /springboot3+knife4j
+title: SpringBoot3整合Knife4j
+date: 2024-03-02
+tags: [框架,工具,SpringBoot,Knife4j]
+keywords: [框架,工具,SpringBoot,Knife4j]
+---
+
 ## 导入对应版本的Knife4j依赖
 
 ```xml
