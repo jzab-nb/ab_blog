@@ -1,4 +1,4 @@
-name: docsearch
+name: CI
 
 on:
   push:
@@ -6,23 +6,39 @@ on:
       - main
 
 jobs:
-  algolia:
-    runs-on: ubuntu-latest
+  build-and-deploy:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest] # macos-latest, windows-latest
+        node: [18]
+
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
-      - name: Get the content of docsearch.json as config
-        id: algolia_config
-        run: echo "::set-output name=config::$(cat docsearch.json | jq -r tostring)"
+      - name: Set node version to ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
 
-      - name: Run algolia/docsearch-scraper image
+      - run: corepack enable
+
+      - name: Setup
+        run: npm i -g @antfu/ni
+
+      - name: Install
+        run: nci
+
+      - name: Build
+        run: nr build
+
+      - name: SSH Deploy
+        uses: easingthemes/ssh-deploy@v4.1.10
         env:
-          ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
-          ALGOLIA_API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
-          CONFIG: ${{ steps.algolia_config.outputs.config }}
-        run: |
-          docker run \
-            --env APPLICATION_ID=${ALGOLIA_APP_ID} \
-            --env API_KEY=${ALGOLIA_API_KEY} \
-            --env "CONFIG=${CONFIG}" \
-            algolia/docsearch-scraper
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          ARGS: "-avzr --delete"
+          SOURCE: "build"
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+          REMOTE_USER: "root"
+          TARGET: "/opt/1panel/apps/openresty/openresty/www/sites/kuizuo.cn/index"

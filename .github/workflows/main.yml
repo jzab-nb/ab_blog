@@ -1,4 +1,4 @@
-name: Auto Deploy
+name: AUTO DEPLOY
 
 on:
   push:
@@ -6,30 +6,39 @@ on:
       - main
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  build-and-deploy:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest] # macos-latest, windows-latest
+        node: [18]
+
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
-      - name: use node
-        uses: actions/setup-node@v3.8.1
+      - name: Set node version to ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
         with:
-          node-version: 18
-          cache: "yarn"
+          node-version: ${{ matrix.node-version }}
 
-      - name: Install dependencies
-        run: yarn
+      - run: corepack enable
+
+      - name: Setup
+        run: npm i -g @antfu/ni
+
+      - name: Install
+        run: nci
 
       - name: Build
-        run: yarn run build
+        run: nr build
 
-      - name: Deploy
+      - name: SSH Deploy
         uses: easingthemes/ssh-deploy@v4.1.10
-        with:
-            SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
-            REMOTE_HOST: ${{ secrets.USER_HOST }}
-            REMOTE_USER: ${{ secrets.USER_NAME }}
-            SOURCE: "/build/"
-            ARGS: -rltgoDzvO --delete
-            TARGET: /var/www/blog
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          ARGS: "-avzr --delete"
+          SOURCE: "build"
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+          REMOTE_USER: "root"
+          TARGET: "/var/www/blog"
