@@ -67,8 +67,8 @@ const config: Config = {
           items: [
             { label: '笔记', to: 'docs/skill' },
             { label: '归档', to: 'blog/archive' },
-            { label: '资源', to: 'resources' },
-            { label: '工具推荐', to: 'docs/tools' },
+            // { label: '资源', to: 'resources' },
+            // { label: '工具推荐', to: 'docs/tools' },
           ],
         },
         {
@@ -101,7 +101,7 @@ const config: Config = {
         {
           title: '更多',
           items: [
-            { label: '导航', position: 'right', to: 'resources' },
+            // { label: '导航', position: 'right', to: 'resources' },
             {
               html: `
                 <a href="https://docusaurus.io/zh-CN/" target="_blank" rel="noreferrer noopener">
