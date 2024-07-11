@@ -1,7 +1,7 @@
 ---
 id: sortUtil2
 slug: /sortUtil2
-title: java排序工具类
+title: java排序工具类2
 date: 2024-07-11
 tags: [工具]
 keywords: [工具]
