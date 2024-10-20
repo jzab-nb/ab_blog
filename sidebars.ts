@@ -19,10 +19,10 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       link: {
         type: 'doc',
-        id: 'skill/docker',
+        id: 'skill/docker/docker',
       },
       items: [
-        'skill/docker'
+        'skill/docker/docker'
       ],
     },
     {
