@@ -15,6 +15,17 @@ const sidebars: SidebarsConfig = {
       ],
     },
     {
+      label: 'docker笔记',
+      type: 'category',
+      link: {
+        type: 'doc',
+        id: 'skill/docker',
+      },
+      items: [
+        'skill/docker'
+      ],
+    },
+    {
       label: 'java笔记',
       type: 'category',
       link: {
