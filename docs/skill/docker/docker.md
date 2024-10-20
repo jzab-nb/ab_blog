@@ -1,3 +1,11 @@
+---
+id: docker
+slug: /skill/docker
+title: docker笔记
+keywords:
+  - docker
+---
+
 ## 快速入门
 
 首先参考官方文档安装docker: https://docs.docker.com/engine/install/ubuntu/
